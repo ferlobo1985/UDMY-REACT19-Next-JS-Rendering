@@ -18,13 +18,19 @@ export default async function Home(){
     </div>
   ))
 
+
+  const counterTrigger = async() => {
+    'use server'
+    console.log('test')
+  }
+
   return(
     <>
       <h1>Employees:</h1>
       <div className="row row-cols-1 rows-cols-sm-2 row-cols-md-3 g-3">
         {showEmployees}
       </div>
-      <Counter/>
+      <Counter counterTrigger={counterTrigger}/>
     </>
   )
 }
