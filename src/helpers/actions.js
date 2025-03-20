@@ -6,10 +6,22 @@ export async function counterTrigger(){
 }
 
 
-export async function addEmployee(formdata) {
-    await axios.post('http://localhost:3004/employees',{
-        fullname:formdata.get('fullname'),
-        position:formdata.get('position'),
-        age:formdata.get('age')
-    })
+export async function addEmployee(prevState,formdata) {
+    // await new Promise((resolve)=> setTimeout(resolve,2000))
+
+    console.log(prevState)
+    try {
+        if(formdata.get('fullname')=== ''){
+            throw new Error('The name is required')
+        }
+
+        await axios.post('http://localhost:3004/employees',{
+            fullname:formdata.get('fullname'),
+            position:formdata.get('position'),
+            age:formdata.get('age')
+        });
+        return {success:true,message:'Name Added'}
+    } catch(e){
+        return {success:false,message:e.message}
+    }
 }

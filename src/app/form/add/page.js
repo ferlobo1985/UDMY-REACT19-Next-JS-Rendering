@@ -1,13 +1,15 @@
-import axios from 'axios';
+'use client'
 import { addEmployee } from '@/helpers/actions';
+import { useActionState } from 'react';
 
 export default function AddPage(){
-
+    const [state,action,isPending] = useActionState(addEmployee,null)
+    
     return(
         <>
             <h1>Add employee</h1>
             <div>
-                <form action={addEmployee}>
+                <form action={action}>
                     <input
                         type="text"
                         className="form-control mb-3"
@@ -35,8 +37,18 @@ export default function AddPage(){
                     <button type="submit" className="btn btn-primary mb-3">
                         Add Employee
                     </button>
-
                 </form>
+                {isPending && <div>...Loading</div>}
+                {!state?.success ?
+                    <div className='text-danger'>
+                        {state?.message}
+                    </div>
+                :
+                    <div className='text-success'>
+                        {state?.message}
+                    </div>
+                }
+
             </div>
         </>
     )
