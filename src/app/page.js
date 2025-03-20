@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Counter from '@/components/counter'
 
 async function getEmployees(){
-  const res = await fetch('http://localhost:3004/employeesss');
+  const res = await fetch('http://localhost:3004/employees');
   if(!res.ok){
     throw new Error('Oop, no employees found')
   }
