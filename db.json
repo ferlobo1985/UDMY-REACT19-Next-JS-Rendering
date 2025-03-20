@@ -5,24 +5,6 @@
       "position": "Manager",
       "age": 80,
       "id": 1
-    },
-    {
-      "fullname": "Francis Jones",
-      "position": "VIP",
-      "age": "65",
-      "id": 2
-    },
-    {
-      "fullname": "Marcus Morris Sr",
-      "position": "Developer Sr",
-      "age": "34",
-      "id": 3
-    },
-    {
-      "fullname": "Mary Thompson",
-      "position": "Designer",
-      "age": "45",
-      "id": 4
     }
   ]
 }

@@ -56,3 +56,10 @@ export async function addEmployee(prevState,formdata) {
         return {success:false,message:e.message}
     }
 }
+
+export async function deleteEmployee(ID){
+    await fetch(`http://localhost:3004/employees/${ID}`,{
+        method:'DELETE'
+    });
+    redirect('/')
+}
