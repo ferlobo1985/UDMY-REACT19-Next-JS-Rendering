@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 async function getEmployee(ID){
     const res = await fetch(`http://localhost:3004/employees/${ID}`);
@@ -20,6 +21,9 @@ export default async function EmployeeByID({params}){
                 <h4>Position:{employee.position}</h4>
                 <h4>Age:{employee.age}</h4>
             </div>
+            <Link href={`/form/edit/${employee.id}`}>
+                Edit Employee
+            </Link>
         </>
     )
 }
