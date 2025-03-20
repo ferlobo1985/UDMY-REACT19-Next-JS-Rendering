@@ -35,6 +35,18 @@
       "position": "Awesome",
       "age": "56",
       "id": 6
+    },
+    {
+      "fullname": "Post Malone",
+      "position": "Singer",
+      "age": "40",
+      "id": 7
+    },
+    {
+      "fullname": "Laure miles",
+      "position": "Manager",
+      "age": "14",
+      "id": 8
     }
   ]
 }
