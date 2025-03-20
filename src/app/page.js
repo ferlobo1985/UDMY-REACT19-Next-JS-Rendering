@@ -3,6 +3,8 @@ import Link from 'next/link'
 import Counter from '@/components/counter'
 
 export default async function Home(){
+  await new Promise((resolve)=>setTimeout(resolve,3000))
+
   const employees = await axios.get('http://localhost:3004/employees')
   const showEmployees = employees.data.map( employee =>(
     <div key={employee.id} className='col'>
