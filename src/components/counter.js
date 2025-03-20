@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react"
+import { counterTrigger } from "@/helpers/actions"
 
 export default function Counter(props){
     const [count,setCount] = useState(0)
@@ -12,7 +13,7 @@ export default function Counter(props){
             <button
                 onClick={()=>{
                     setCount(count+1);
-                    props.counterTrigger();
+                    counterTrigger()
                 }}
             >
                 Update
