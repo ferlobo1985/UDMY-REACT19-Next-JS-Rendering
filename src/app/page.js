@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Counter from '@/components/counter'
 
 export default async function Home(){
-  await new Promise((resolve)=>setTimeout(resolve,3000))
+  // await new Promise((resolve)=>setTimeout(resolve,3000))
 
   const employees = await axios.get('http://localhost:3004/employees')
   const showEmployees = employees.data.map( employee =>(
@@ -14,7 +14,7 @@ export default async function Home(){
             <hr/>
             <p className='card-text'>{employee.position}</p>
             <p className='card-text'>{employee.age}</p>
-            <Link href={`/employee/${employee.id}`} className='btn btn-primary'>Go to empl</Link>
+            <Link href={`/employees/${employee.id}`} className='btn btn-primary'>Go to empl</Link>
           </div>
       </div>
     </div>
