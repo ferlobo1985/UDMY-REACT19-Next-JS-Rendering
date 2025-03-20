@@ -2,11 +2,19 @@ import axios from 'axios'
 import Link from 'next/link'
 import Counter from '@/components/counter'
 
+async function getEmployees(){
+  const res = await fetch('http://localhost:3004/employeesss');
+  if(!res.ok){
+    throw new Error('Oop, no employees found')
+  }
+  return res.json()
+}
+
 export default async function Home(){
   // await new Promise((resolve)=>setTimeout(resolve,3000))
 
-  const employees = await axios.get('http://localhost:3004/employees')
-  const showEmployees = employees.data.map( employee =>(
+  const employees = await getEmployees()
+  const showEmployees = employees.map( employee =>(
     <div key={employee.id} className='col'>
       <div className='card'>
           <div className='card-body'>
