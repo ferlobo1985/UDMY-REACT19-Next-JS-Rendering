@@ -2,7 +2,22 @@
 import { useFormik } from "formik";
 import * as Yup from 'yup';
 
+import { editEmployees } from "@/helpers/actions";
+import { useTransition, useState } from "react";
+
 export default function EditForm({employee}){
+    const [isPending,startTransition] = useTransition();
+    const [error, setError] = useState(null)
+
+
+    const handleSubmit = async (values)=>{
+        startTransition(async ()=>{
+            const {error} = await editEmployees(values);
+            if(error){
+                setError(error)
+            }
+        })
+    }
 
     const formik =  useFormik({
         enableReinitialize: true,
@@ -18,7 +33,7 @@ export default function EditForm({employee}){
             age:Yup.string().required('Age required'),
         }),
         onSubmit:(values)=>{
-            console.log(values)
+            handleSubmit(values)
         }
     })
 
@@ -71,6 +86,12 @@ export default function EditForm({employee}){
                 <button type="submit" className="btn btn-primary mb-3">
                     Edit Employee
                 </button>
+
+                { error ? (
+                    <div className="alert alert-danger" role="alert">
+                        {error}
+                    </div>
+                ):null}
 
             </form>
         </>
