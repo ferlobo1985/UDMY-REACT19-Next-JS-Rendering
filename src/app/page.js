@@ -1,12 +1,31 @@
 import axios from 'axios'
 import Link from 'next/link'
 import Counter from '@/components/counter'
+import { headers, cookies } from 'next/headers';
 
 // export const dynamic = 'force-dynamic'
 // export const revalidate = 5
 
 async function getEmployees(){
-  const res = await fetch('http://localhost:3004/employees',{next:{revalidate:5}});
+  // const headersList = (await headers());
+  // headersList.forEach((value,key)=>{
+  //   console.log(value,"=",key )
+  // })
+  // const hasHeader = headersList.has('Content-Type');
+  // console.log(headersList.values())
+  // console.log(headersList.keys())
+  const cookieStore = await cookies();
+  // console.log(cookieStore.get('some-cookie'))
+  // console.log(cookieStore.getAll().map((cookie)=>{
+  //   return cookie
+  // }))
+  // console.log(cookieStore.has('some-cookie'))
+  // cookieStore.set('name','value',{secure:true});
+  // cookieStore.delete('name')
+
+
+
+  const res = await fetch('http://localhost:3004/employees');
   if(!res.ok){
     throw new Error('Oop, no employees found')
   }
