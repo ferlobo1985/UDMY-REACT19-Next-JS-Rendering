@@ -35,6 +35,12 @@
       "position": "Artist",
       "age": "25",
       "id": 7
+    },
+    {
+      "fullname": "Francis Miles",
+      "position": "Operator",
+      "age": "25",
+      "id": 8
     }
   ]
 }
