@@ -11,6 +11,24 @@
       "position": "Manager",
       "age": "25",
       "id": 2
+    },
+    {
+      "fullname": "Michael Jackson",
+      "position": "Singer",
+      "age": "50",
+      "id": 3
+    },
+    {
+      "fullname": "Steve Vai",
+      "position": "Guitar player",
+      "age": "60",
+      "id": 4
+    },
+    {
+      "fullname": "Usher Gong",
+      "position": "Manager",
+      "age": "20",
+      "id": 5
     }
   ]
 }

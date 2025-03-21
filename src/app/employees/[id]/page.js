@@ -3,6 +3,8 @@ import Link from "next/link";
 
 import { deleteEmployee } from '@/helpers/actions'
 
+// export const dynamic = 'force-static'
+
 async function getEmployee(ID){
     const res = await fetch(`http://localhost:3004/employees/${ID}`);
     if(!res.ok){
