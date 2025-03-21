@@ -29,6 +29,12 @@
       "position": "Musician",
       "age": "65",
       "id": 6
+    },
+    {
+      "fullname": "Mike Myers",
+      "position": "Artist",
+      "age": "25",
+      "id": 7
     }
   ]
 }
