@@ -1,7 +1,18 @@
+import { cookies, headers } from "next/headers";
 
-export async function GET(request){
-    const x = request.nextUrl.searchParams.get('x')
-    const y = request.nextUrl.searchParams.get('y')
+export async function GET(){
+    const cookieStore = cookies();
+    const token =  (await cookieStore).get('token');
 
-    return Response.json({x,y})
+    const auth = (await headers()).get('Authorization');
+    const type = (await headers()).get('Content-Type');
+    console.log(auth,type)
+
+    const res = await fetch('http://localhost:3004/employees')
+    const employees = await res.json();
+
+    return Response.json(employees,{
+        status:200,
+        headers:{'Set-Cookie':'token=Bearer ljsdfksdbfksdbksf....'}
+    })
 }
