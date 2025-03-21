@@ -1,6 +1,7 @@
 'use server'
 import axios from 'axios';
 import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 
 export async function editEmployees(formdata){
     try{
@@ -28,6 +29,8 @@ export async function editEmployees(formdata){
     } catch(error){
         return {error:error}
     }
+    revalidatePath(`/employees/${formdata.id}`)
+    revalidatePath('/')
     redirect('/')
 }
 
@@ -39,8 +42,6 @@ export async function counterTrigger(){
 
 export async function addEmployee(prevState,formdata) {
     // await new Promise((resolve)=> setTimeout(resolve,2000))
-
-    console.log(prevState)
     try {
         if(formdata.get('fullname')=== ''){
             throw new Error('The name is required')
@@ -51,6 +52,8 @@ export async function addEmployee(prevState,formdata) {
             position:formdata.get('position'),
             age:formdata.get('age')
         });
+
+        revalidatePath('/')
         return {success:true,message:'Name Added'}
     } catch(e){
         return {success:false,message:e.message}
@@ -61,5 +64,6 @@ export async function deleteEmployee(ID){
     await fetch(`http://localhost:3004/employees/${ID}`,{
         method:'DELETE'
     });
+    revalidatePath('/')
     redirect('/')
 }
