@@ -6,7 +6,7 @@ export default function Header(){
             <span className='fs-4'>Employee DB</span>
 
             <nav className='d-inline-flex mt-2 mt-md-0 ms-md-auto'>
-                <Link href="/" className='me-3 py-2 link-body-emphasis text-decoration-none'>
+                <Link href="/" className='me -3 py-2 link-body-emphasis text-decoration-none'>
                     Home
                 </Link>
                 <Link href="/form/add" className='me-3 py-2 link-body-emphasis text-decoration-none'>
@@ -14,6 +14,9 @@ export default function Header(){
                 </Link>
                 <Link href="/streaming" className='me-3 py-2 link-body-emphasis text-decoration-none'>
                     Streaming
+                </Link>
+                <Link href="/testing" className='me-3 py-2 link-body-emphasis text-decoration-none'>
+                    Testing
                 </Link>
             </nav>
 
