@@ -5,6 +5,12 @@
       "position": "Manager",
       "age": 80,
       "id": 1
+    },
+    {
+      "fullname": "Lorne Michell",
+      "position": "Manager",
+      "age": "25",
+      "id": 2
     }
   ]
 }
